@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <style>
+        /* Google Material Design icons */
+        
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(fonts/MaterialIcons/MaterialIcons-Regular.eot);
+            /* For IE6-8 */
+            src: local('Material Icons'), local('MaterialIcons-Regular'), url(fonts/MaterialIcons/MaterialIcons-Regular.woff2) format('woff2'), url(fonts/MaterialIcons/MaterialIcons-Regular.woff) format('woff'), url(fonts/MaterialIcons/MaterialIcons-Regular.ttf) format('truetype');
+        }
+        
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+            /* Support for IE. */
+            font-feature-settings: 'liga';
+        }
+        /*Reserved*/
+        /*Nav bar*/
+        
+        #navbar-container nav {
+            background: url(background.jpg);
+        }
+        
+        #navbar {
+            /*max-width: 62.5rem;*/
+            margin: auto;
+        }
+        
+        .nb-logo {
+            margin-left: 0.3125rem;
+            margin-top: 1px;
+            height: 4rem;
+            vertical-align: middle;
+            display: inline-block!important;
+        }
+        
+        .side-nav a {
+            color: #fff!important;
+        }
+        
+        nav {
+            background: none;
+            box-shadow: none;
+        }
+        /*Side nav*/
+        
+        #slide-out-panel {
+            overflow-y: hidden;
+        }
+        
+        .side-background {
+            height: 150%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .side-nav a i {
+            color: #fff!important;
+        }
+        
+        .side-nav .subheader {
+            color: #ddd!important;
+        }
+        
+        .side-nav .divider {
+            color: #ddd!important;
+        }
+        /*Search bar
+        
+        .search-bar {
+            max-width: 62.5rem;
+            margin: auto;
+        }
+        /*Post cards
+        
+        .card {
+            border-radius: none;
+            box-shadow: none;
+        }
+        
+        .post-card {
+            opacity: 0.93;
+            margin-top: -1px;
+        }
+        
+        .post-card .card {
+            background: none;
+        }
+        
+        .post-card-content {
+            max-width: 62.5rem;
+            margin: auto;
+        }
+        
+        .card .card-image {
+            padding: 2%;
+        }
+        
+        .card .card-content {
+            padding-left: 30px;
+            padding-right: 30px;
+            max-height: 15rem;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: normal;
+        }
+        
+        .card .card-action {
+            text-align: right;
+        }
+        
+        .card .card-action a {
+            color: #2d4186!important;
+        }
+        
+        .post-card .card-image .circle {
+            padding: 10px;
+            width: 8rem!important;
+            border-radius: 50%;
+        }
+        
+        .post-user-profile {
+            display: flex;
+        }
+        
+        .post-header {
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .post-card .card-stacked {
+            margin-top: -30px;
+        }
+        
+        .post-header.subheader.hide-on-small-only {
+            padding-left: 10.625rem;
+            margin-top: -4rem;
+            margin-bottom: 2rem;
+        }
+        
+        .post-header-container {
+            display: flex;
+        }
+        
+        .post-white {
+            background: #fff;
+        }
+        
+        .post-grey {
+            background: #eee;
+        }*/
+        /*About Card*/
+        
+        .about {
+            padding: 1rem;
+            background: #ddd;
+        }
+        
+        .about h5 {
+            margin: 0;
+        }
+        /*Login Card*/
+        
+        .login-card {
+            background: #fff;
+            opacity: 0.95;
+            height: 100%;
+            position: fixed;
+            width: 100%;
+            padding: 5%;
+        }
+        
+        .login-card .row {
+            max-width: 42.5rem;
+            margin: auto;
+        }
+        
+        .login-card h4 {
+            margin-top: -1%;
+            margin-left: 0.675rem;
+            color: #2760aa;
+        }
+        
+        .login-btn {
+            float: right;
+            color: #2760aa;
+            font-size: 1.2rem;
+        }
+        
+        .about-login {
+            position: absolute;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            opacity: 0.9;
+            z-index: 1;
+        }
+        /*Change color of input fields*/
+        
+        input[type=text]:focus+label,
+        input[type=password]:focus+label {
+            color: #2760aa!important;
+        }
+        
+        input[type=text]:focus,
+        input[type=password]:focus {
+            border-bottom: 1px solid #2760aa!important;
+            box-shadow: 0 1px 0 0 #2760aa!important;
+        }
+        
+        .login-placeholder {
+            height: 20%;
+        }
+        .forgot-password-link{
+            font-size: 1.2rem;
+            margin-top: 0.4rem;
+            padding-left: 0.675rem;
+            display:block;
+            color: #2760aa;
+        }
+        /*General Properties*/
+        
+        body {
+            background: url(background.jpg) fixed;
+        }
+        
+        .subheader {
+            color: #aaa;
+        }
+    </style>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <!--Side Nav-->
+    <ul id="slide-out-panel" class="side-nav">
+        <img class="side-background" src="avatar-background.jpg"></img>
+        <li>
+            <div class="userView">
+                <!--<img class="background" src="avatar-background.jpg">-->
+                <a href="#!user"><img class="circle" src="avatar.jpg"></a>
+                <a href="#!name"><span class="white-text name">Ludwig van Beethoven</span></a>
+                <a href="#!email"><span class="white-text email">Trade Tallyman</span></a>
+            </div>
+        </li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">view_stream</i>NoticeBoard</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">school</i>Powerschool</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">cloud</i>Files</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">shop_basket</i>Marketplace</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">comment</i>Danmaku</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Account</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Settings</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">exit_to_app</i>Sign out</a></li>
+    </ul>
+    <!--Nav bar-->
+    <div class="navbar-fixed" id="navbar-container">
+        <nav style="box-shadow: none">
+            <div class="nav-wrapper" id="navbar">
+                <a href="#" data-activates="slide-out-panel" class="button-collapse nb-logo push-l3"><img class="nb-logo" src="logo.png"></img>
+                </a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="collapsible.html"><i class="material-icons">add</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--Login Card-->
+    <div class="login-card">
+        <!--Login Card Placeholder-->
+        <div class="login-placeholder"></div>
+        <div class="row login-form">
+            <form class="col s12">
+                <h4>Welcome to NoticeBoard.</h4>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" type="text">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <button class="login-btn btn-flat waves-effect waves-light" type="submit" name="action">Login
+  </button>
+      <a href="" class="forgot-password-link">FORGOT PASSWORD?</a>
+            </form>
+        </div>
+    </div>
+    <div class="post-card about about-login">
+        <h5 class="subheader center-align">HFI Programming Club 2016</h5>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+         $(".button-collapse").sideNav();
+         $(document).ready(function(){
+             //Give each post-card its colour
+             var postcards=$('.post-card');
+             for(var i=0;i<(postcards.length);i++){
+                 if(i%2==0){
+                     $(postcards[i]).addClass('post-white');
+                 }else{
+                     $(postcards[i]).addClass('post-grey');
+                 }
+             }
+         });
+    </script>
+</body>
+
+</html>
