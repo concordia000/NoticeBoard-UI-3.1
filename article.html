@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <style>
+        /* Google Material Design icons */
+        
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(fonts/MaterialIcons/MaterialIcons-Regular.eot);
+            /* For IE6-8 */
+            src: local('Material Icons'), local('MaterialIcons-Regular'), url(fonts/MaterialIcons/MaterialIcons-Regular.woff2) format('woff2'), url(fonts/MaterialIcons/MaterialIcons-Regular.woff) format('woff'), url(fonts/MaterialIcons/MaterialIcons-Regular.ttf) format('truetype');
+        }
+        
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+            /* Support for IE. */
+            font-feature-settings: 'liga';
+        }
+        /*Reserved*/
+        /*Nav bar*/
+        
+        #navbar-container nav {
+            background: url(background.jpg);
+        }
+        
+        #navbar {
+            /*max-width: 62.5rem;*/
+            margin: auto;
+        }
+        
+        .nb-logo {
+            margin-top: 0.25rem;
+            height: 4rem;
+            vertical-align: middle;
+        }
+        
+        .menu-button {
+            display: inline-block!important;
+            margin-left: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .add-button {
+            font-size: 2.5rem!important;
+        }
+        
+        nav {
+            background: none;
+            box-shadow: none;
+        }
+        /*Side nav*/
+        
+        .side-nav a {
+            color: #fff!important;
+        }
+        
+        #slide-out-panel {
+            overflow-y: hidden;
+        }
+        
+        .side-background {
+            height: 150%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .side-nav a i {
+            color: #fff!important;
+        }
+        
+        .side-nav .subheader {
+            color: #ddd!important;
+        }
+        
+        .side-nav .divider {
+            color: #ddd!important;
+        }
+        /*Search bar*/
+        
+        .search-bar {
+            max-width: 62.5rem;
+            margin: auto;
+        }
+        /*Post cards*/
+        
+        .card {
+            border-radius: none;
+            box-shadow: none;
+        }
+        
+        .post-card {
+            opacity: 0.95;
+            margin: auto;
+        }
+        
+        @media only screen and (min-width: 992px) {
+            .post-card {
+                opacity: 0.97;
+            }
+            .post-card:not(.article-card) {
+                max-width: 62.5rem;
+                margin-bottom: 2rem;
+                background: #fff;
+            }
+            .about {
+                background: #ddd!important;
+                margin-bottom: 0;
+            }
+        }
+        /*Fix a bug on larger screens*/
+        
+        @media only screen and (min-width: 1200px) {
+            .post-card,
+            .article-card {
+                margin-top: -1px;
+            }
+        }
+        
+        .post-card .card {
+            background: none;
+        }
+        
+        .post-card-content {
+            max-width: 62.5rem;
+            margin: auto;
+        }
+        
+        .card .card-image {
+            padding: 2%;
+        }
+        
+        .card .card-content {
+            padding-left: 30px;
+            padding-right: 30px;
+            max-height: 15rem;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: normal;
+        }
+        
+        .card .card-action {
+            text-align: right;
+        }
+        
+        .card .card-action a {
+            color: #2d4186!important;
+        }
+        
+        .post-card .card-image .circle {
+            padding: 10px;
+            width: 8rem!important;
+            border-radius: 50%;
+        }
+        
+        .post-user-profile {
+            display: flex;
+        }
+        
+        .post-header {
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .post-card .card-stacked {
+            margin-top: -30px;
+        }
+        
+        .post-header.subheader.hide-on-med-and-down {
+            margin-right: 32.5rem;
+            display: inline;
+        }
+        
+        .post-header-container {
+            display: flex;
+        }
+        
+        .post-white {
+            background: #fff;
+        }
+        
+        .post-grey {
+            background: #eee;
+        }
+        /*About Card*/
+        
+        .about {
+            padding: 1rem;
+            background: #ddd;
+        }
+        
+        .about h5 {
+            margin: 0;
+        }
+        /*Article Cards*/
+        
+        .article-card .card-content {
+            max-height: 10000rem;
+        }
+        
+        .article-card .card-content .subheader.post-header {
+            display: block;
+            margin: auto;
+        }
+        
+        .article-card .card-image {
+            margin: auto;
+        }
+        
+        .article-card .card-stacked {
+            margin-top: -5px;
+        }
+        
+        .article-card .post-header-container h3,
+        .article-card .post-header-container h5,
+        .article-card .post-header-container h6 {
+            font-weight: 300;
+            padding-left: 30px;
+            padding-right: 30px;
+            line-height: 1.2;
+        }
+        /*Comment Card*/
+        
+        .comment-card .card-image {
+            margin: 0;
+        }
+        
+        .comment-card p {
+            margin-top: -1.5rem!important;
+        }
+        
+        .comment-caption {
+            padding: 1rem;
+        }
+        
+        .comment {
+            background: #eee;
+            opacity: 0.97;
+        }
+        /*General Properties*/
+        
+        body {
+            background: url(background.jpg) fixed;
+        }
+        
+        .subheader {
+            color: #999;
+        }
+    </style>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <!--Side Nav-->
+    <ul id="slide-out-panel" class="side-nav">
+        <img class="side-background" src="avatar-background.jpg"></img>
+        <li>
+            <div class="userView">
+                <!--<img class="background" src="avatar-background.jpg">-->
+                <a href="#!user"><img class="circle" src="avatar.jpg"></a>
+                <a href="#!name"><span class="white-text name">Ludwig van Beethoven</span></a>
+                <a href="#!email"><span class="white-text email">Trade Tallyman</span></a>
+            </div>
+        </li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">view_stream</i>NoticeBoard</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">school</i>Powerschool</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">cloud</i>Files</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">shop_basket</i>Marketplace</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">comment</i>Danmaku</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Account</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Settings</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">exit_to_app</i>Sign out</a></li>
+    </ul>
+    <!--Nav bar-->
+    <div class="navbar-fixed" id="navbar-container">
+        <nav style="box-shadow: none">
+            <div class="nav-wrapper" id="navbar">
+                <a href="#" data-activates="slide-out-panel" class="button-collapse push-l3 menu-button"><i class="material-icons">menu</i>
+                </a>
+                <img class="nb-logo brand-logo center" src="logo.png"></img>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="collapsible.html"><i class="material-icons add-button">add</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--Search Bar-->
+    <nav class="search-bar">
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" placeholder="Search NoticeBoard" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!--Article Cards-->
+    <div class="post-card article-card">
+        <div class="card vertical post-card-content">
+            <div class="post-user-profile">
+                <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+            </div>
+            <div class="post-header-container">
+                <h3 class="header post-header">Recruiting PY-trade partners</h3>
+            </div>
+            <div class="post-header-container">
+                <h6 class="header post-header subheader">Ludwig van Beethoven on 1:14 2016/9/20</h6>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p class="flow-text">
+                        Ludwig van Beethoven was a German composer. A crucial figure in the transition between the Classical and Romantic eras in
+                        Western art music, he remains one of the most famous and influential of all composers. His best-known
+                        compositions include 9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string
+                        quartets, his great Mass the Missa solemnis and an opera, Fidelio. Ludwig van Beethoven was a German
+                        composer. A crucial figure in the transition between the Classical and Romantic eras in Western art
+                        music, he remains one of the most famous and influential of all composers. His best-known compositions
+                        include 9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets,
+                        his great Mass the Missa solemnis and an opera, Fidelio. Ludwig van Beethoven was a German composer.
+                        A crucial figure in the transition between the Classical and Romantic eras in Western art music,
+                        he remains one of the most famous and influential of all composers. His best-known compositions include
+                        9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great
+                        Mass the Missa solemnis and an opera, Fidelio. Ludwig van Beethoven was a German composer. A crucial
+                        figure in the transition between the Classical and Romantic eras in Western art music, he remains
+                        one of the most famous and influential of all composers. His best-known compositions include 9 symphonies,
+                        5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
+                        solemnis and an opera, Fidelio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="article-card comment">
+        <div class="post-header-container comment-caption">
+            <h3 class="header post-header">Comments</h3>
+        </div>
+    </div>
+    <div class="post-card article-card comment-card">
+        <div class="card vertical post-card-content">
+            <div class="post-user-profile">
+                <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                <div class="post-header-container">
+                    <h5 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h5>
+                </div>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p class="flow-text">
+                        To be, or not to be, that is the question.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-card article-card comment-card">
+        <div class="card vertical post-card-content">
+            <div class="post-user-profile">
+                <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                <div class="post-header-container">
+                    <h5 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h5>
+                </div>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p class="flow-text">
+                        To be, or not to be, that is the question.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-card article-card comment-card">
+        <div class="card vertical post-card-content">
+            <div class="post-user-profile">
+                <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                <div class="post-header-container">
+                    <h5 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h5>
+                </div>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p class="flow-text">
+                        To be, or not to be, that is the question.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-card article-card about">
+        <h5 class="subheader center-align">HFI Programming Club 2016</h5>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+         $(".button-collapse").sideNav();
+         $(document).ready(function(){
+             //Give each post-card its colour
+             var postcards=$('.post-card');
+             for(var i=0;i<(postcards.length);i++){
+                 if(i%2==0){
+                     $(postcards[i]).addClass('post-white');
+                 }else{
+                     $(postcards[i]).addClass('post-grey');
+                 }
+             }
+         });
+    </script>
+</body>
+
+</html>
