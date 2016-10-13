@@ -164,6 +164,7 @@
         
         .card .card-action {
             text-align: right;
+            border-bottom: 1px solid rgba(160, 160, 160, 0.2);
         }
         
         .card .card-action a {
@@ -172,7 +173,7 @@
         
         .post-card .card-image .circle {
             padding: 10px;
-            width: 8rem!important;
+            width: 8rem;
             border-radius: 50%;
         }
         
@@ -211,6 +212,17 @@
             color: #039be5!important;
             padding-left: 1rem;
             padding-right: 1rem;
+        }
+        
+        .post-comment-card {
+            border-top: 1px solid rgba(160, 160, 160, 0.2);
+            padding-top: 0!important;
+            padding-bottom: 0!important;
+            background: #f7ffff;
+        }
+        
+        .post-comment-card .circle {
+            width: 4rem!important;
         }
         /*About Card*/
         
@@ -276,9 +288,10 @@
     <!--Search Bar-->
     <nav class="search-bar">
         <div class="nav-wrapper">
-            <form>
+            <form method="get" action="http://www.bing.com/search">
                 <div class="input-field">
-                    <input id="search" type="search" placeholder="Search NoticeBoard" required>
+                    <input type="hidden" name="site" value="hfinotice.com" />
+                    <input id="search" name="q" type="search" placeholder="Search NoticeBoard" required>
                     <label for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
@@ -288,11 +301,14 @@
     <!--Post Cards-->
     <div class="post-card">
         <div class="card vertical post-card-content">
+            <div class="card-action">
+                <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
+                <a href="#">Full article</a>
+            </div>
             <div class="post-user-profile">
                 <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
                 <div class="post-header-container">
                     <h4 class="header post-header">Recruiting PY-trade partners</h4>
-
                 </div>
             </div>
             <div class="card-stacked">
@@ -322,15 +338,31 @@
                         5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
                         solemnis and an opera, Fidelio.</p>
                 </div>
-                <div class="card-action">
-                    <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
-                    <a href="#">Full article</a>
+                <div class="card-content post-comment-card">
+                    <div class="card vertical post-card-content">
+                        <div class="post-user-profile">
+                            <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                            <div class="post-header-container">
+                                <h6 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h6>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>
+                                    To be, or not to be, that is the question.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="post-card">
         <div class="card vertical post-card-content">
+            <div class="card-action">
+                <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
+                <a href="#">Full article</a>
+            </div>
             <div class="post-user-profile">
                 <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
                 <div class="post-header-container">
@@ -364,20 +396,35 @@
                         5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
                         solemnis and an opera, Fidelio.</p>
                 </div>
-                <div class="card-action">
-                    <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
-                    <a href="#">Full article</a>
+                <div class="card-content post-comment-card">
+                    <div class="card vertical post-card-content">
+                        <div class="post-user-profile">
+                            <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                            <div class="post-header-container">
+                                <h6 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h6>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>
+                                    To be, or not to be, that is the question.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="post-card">
         <div class="card vertical post-card-content">
+            <div class="card-action">
+                <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
+                <a href="#">Full article</a>
+            </div>
             <div class="post-user-profile">
                 <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
                 <div class="post-header-container">
                     <h4 class="header post-header">Recruiting PY-trade partners</h4>
-
                 </div>
             </div>
             <div class="card-stacked">
@@ -407,20 +454,35 @@
                         5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
                         solemnis and an opera, Fidelio.</p>
                 </div>
-                <div class="card-action">
-                    <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
-                    <a href="#">Full article</a>
+                <div class="card-content post-comment-card">
+                    <div class="card vertical post-card-content">
+                        <div class="post-user-profile">
+                            <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                            <div class="post-header-container">
+                                <h6 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h6>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>
+                                    To be, or not to be, that is the question.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="post-card">
         <div class="card vertical post-card-content">
+            <div class="card-action">
+                <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
+                <a href="#">Full article</a>
+            </div>
             <div class="post-user-profile">
                 <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
                 <div class="post-header-container">
                     <h4 class="header post-header">Recruiting PY-trade partners</h4>
-
                 </div>
             </div>
             <div class="card-stacked">
@@ -450,20 +512,35 @@
                         5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
                         solemnis and an opera, Fidelio.</p>
                 </div>
-                <div class="card-action">
-                    <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
-                    <a href="#">Full article</a>
+                <div class="card-content post-comment-card">
+                    <div class="card vertical post-card-content">
+                        <div class="post-user-profile">
+                            <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                            <div class="post-header-container">
+                                <h6 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h6>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>
+                                    To be, or not to be, that is the question.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="post-card">
         <div class="card vertical post-card-content">
+            <div class="card-action">
+                <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
+                <a href="#">Full article</a>
+            </div>
             <div class="post-user-profile">
                 <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
                 <div class="post-header-container">
                     <h4 class="header post-header">Recruiting PY-trade partners</h4>
-
                 </div>
             </div>
             <div class="card-stacked">
@@ -493,20 +570,35 @@
                         5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
                         solemnis and an opera, Fidelio.</p>
                 </div>
-                <div class="card-action">
-                    <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
-                    <a href="#">Full article</a>
+                <div class="card-content post-comment-card">
+                    <div class="card vertical post-card-content">
+                        <div class="post-user-profile">
+                            <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                            <div class="post-header-container">
+                                <h6 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h6>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>
+                                    To be, or not to be, that is the question.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="post-card">
         <div class="card vertical post-card-content">
+            <div class="card-action">
+                <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
+                <a href="#">Full article</a>
+            </div>
             <div class="post-user-profile">
                 <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
                 <div class="post-header-container">
                     <h4 class="header post-header">Recruiting PY-trade partners</h4>
-
                 </div>
             </div>
             <div class="card-stacked">
@@ -536,9 +628,21 @@
                         5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa
                         solemnis and an opera, Fidelio.</p>
                 </div>
-                <div class="card-action">
-                    <h6 class="subheader post-header hide-on-med-and-down">Ludwig van Beethoven on 2016/9/4 22:54</h6>
-                    <a href="#">Full article</a>
+                <div class="card-content post-comment-card">
+                    <div class="card vertical post-card-content">
+                        <div class="post-user-profile">
+                            <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                            <div class="post-header-container">
+                                <h6 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h6>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>
+                                    To be, or not to be, that is the question.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
