@@ -4,6 +4,8 @@
 <head>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--Import Railway Sans-->
+    <link rel="stylesheet" href="railwaysans/css/stylesheet.css" type="text/css" charset="utf-8" />
     <style>
         /* Google Material Design icons */
         
@@ -218,8 +220,36 @@
         }
         /*Article Cards*/
         
+        .triangle {
+            opacity: 0.9;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid #66cccc;
+        }
+        
+        @media only screen and (min-width: 992px) {
+            .triangle {
+                border-left: 100px solid transparent;
+                border-right: 100px solid transparent;
+                border-bottom: 100px solid #66cccc;
+            }
+        }
+        
+        .railway {
+            font-family: 'RailwayRegular';
+        }
+        
+        .article-author {
+            color: #66cccc;
+            font-size: 1.1rem;
+        }
+        
         .article-card .card-content {
             max-height: 10000rem;
+            padding-top: 11px;
         }
         
         .article-card .card-content .subheader.post-header {
@@ -227,12 +257,12 @@
             margin: auto;
         }
         
-        .article-card .card-image {
-            margin: auto;
-        }
-        
         .article-card .card-stacked {
             margin-top: -5px;
+        }
+        
+        .article-card .title-container {
+            margin-top: -10px;
         }
         
         .article-card .post-header-container h3,
@@ -243,14 +273,34 @@
             padding-right: 30px;
             line-height: 1.2;
         }
+        
+        .article-avatar {
+            margin: auto;
+        }
+        
+        .article-card-text {
+            line-height: 2;
+            font-size: 1.25rem;
+            font-weight: 300;
+            max-width: 42.5rem;
+            margin: auto!important;
+        }
         /*Comment Card*/
         
         .comment-card .card-image {
             margin: 0;
         }
         
+        .comment-card .post-card-content {
+            max-width: 47.5rem;
+        }
+        
         .comment-card p {
             margin-top: -1.5rem!important;
+        }
+        
+        .comment-card .article-card-text {
+            margin: 0!important;
         }
         
         .comment-caption {
@@ -261,10 +311,24 @@
             background: #eee;
             opacity: 0.97;
         }
+        
+        .comment-placeholder {
+            text-align: center;
+            display: none;
+        }
+        
+        .comment-placeholder h4 {
+            color: #444;
+            margin: 0;
+            font-weight: 300;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
         /*General Properties*/
         
         body {
             background: url(background.jpg) fixed;
+            /*Change here for custom background*/
         }
         
         .subheader {
@@ -300,7 +364,8 @@
         <li><a class="waves-effect" href="#!"><i class="material-icons">exit_to_app</i>Sign out</a></li>
     </ul>
     <!--Nav bar-->
-    <div class="navbar-fixed" id="navbar-container">
+    <!--Article page navbar is NOT FIXED!!!-->
+    <div class="navbar" id="navbar-container">
         <nav style="box-shadow: none">
             <div class="nav-wrapper" id="navbar">
                 <a href="#" data-activates="slide-out-panel" class="button-collapse push-l3 menu-button"><i class="material-icons">menu</i>
@@ -313,7 +378,7 @@
         </nav>
     </div>
     <!--Search Bar-->
-    <nav class="search-bar">
+    <!--<nav class="search-bar">
         <div class="nav-wrapper">
             <form>
                 <div class="input-field">
@@ -323,22 +388,30 @@
                 </div>
             </form>
         </div>
-    </nav>
+    </nav>-->
+    <div class="triangle">
+    </div>
     <!--Article Cards-->
     <div class="post-card article-card">
         <div class="card vertical post-card-content">
             <div class="post-user-profile">
-                <div class="card-image"><img class="circle" src="avatar.jpg" /></div>
+                <div class="card-image article-avatar"><img class="circle" src="avatar.jpg" /></div>
+            </div>
+            <div class="post-header-container title-container">
+                <h3 class="header post-header railway">Recruiting PY-trade partners</h3>
             </div>
             <div class="post-header-container">
-                <h3 class="header post-header">Recruiting PY-trade partners</h3>
+                <h5 class="header post-header railway subheader">A legend worth cherish</h5>
             </div>
             <div class="post-header-container">
-                <h6 class="header post-header subheader">Ludwig van Beethoven on 1:14 2016/9/20</h6>
+                <h6 class="header post-header railway article-author">Ludwig van Beethoven</h6>
+            </div>
+            <div class="post-header-container">
+                <h6 class="header post-header railway subheader">2016/10/19 23:20</h6>
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <p class="flow-text">
+                    <p class="article-card-text">
                         Ludwig van Beethoven was a German composer. A crucial figure in the transition between the Classical and Romantic eras in
                         Western art music, he remains one of the most famous and influential of all composers. His best-known
                         compositions include 9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string
@@ -361,8 +434,12 @@
     </div>
     <div class="article-card comment">
         <div class="post-header-container comment-caption">
-            <h3 class="header post-header">Comments</h3>
+            <h3 class="header post-header railway">Comments</h3>
         </div>
+    </div>
+    <!--Comment placeholder-->
+    <div class="post-card article-card comment-card comment-placeholder">
+        <h4>No comments yet. Anything to write about?</h4>
     </div>
     <div class="post-card article-card comment-card">
         <div class="card vertical post-card-content">
@@ -374,7 +451,7 @@
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <p class="flow-text">
+                    <p class="article-card-text">
                         To be, or not to be, that is the question.</p>
                 </div>
             </div>
@@ -390,7 +467,7 @@
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <p class="flow-text">
+                    <p class="article-card-text">
                         To be, or not to be, that is the question.</p>
                 </div>
             </div>
@@ -406,7 +483,7 @@
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <p class="flow-text">
+                    <p class="article-card-text">
                         To be, or not to be, that is the question.</p>
                 </div>
             </div>
@@ -429,6 +506,11 @@
                  }else{
                      $(postcards[i]).addClass('post-grey');
                  }
+             }
+             //If comments placeholder is needed
+             var comments=$('.comment-card');
+             if(comments.length==1){
+                 $('.comment-card').css('display','block');
              }
          });
     </script>
