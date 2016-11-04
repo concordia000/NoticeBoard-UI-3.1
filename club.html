@@ -270,10 +270,6 @@
 		}
 		/*Comment Card*/
 		
-		.comment-card {
-			padding-top: 0.375rem;
-		}
-		
 		.comment-card .card-image {
 			margin: 0;
 		}
@@ -281,9 +277,7 @@
 		.comment-card .post-card-content {
 			max-width: 47.5rem;
 		}
-		.comment-card .post-card-content .card-content{
-			padding-top:0!important;
-		}
+		
 		.comment-card p {
 			margin-top: -1.5rem!important;
 		}
@@ -313,7 +307,68 @@
 			padding-top: 2rem;
 			padding-bottom: 2rem;
 		}
+		/*Club Cards*/
+		
+		.club-card {
+			padding-bottom: 0.375rem;
+		}
+		
+		.club-card .card-stacked {
+			margin-top: -10px;
+		}
+		
+		.club-card .card-content {
+			max-height: 10000rem;
+		}
+		
+		.club-card-text {
+			line-height: 2;
+			font-size: 1.1rem;
+			font-weight: 300;
+			max-width: 42.5rem;
+			margin: auto!important;
+		}
+		
+		@media only screen and (min-width: 992px) {
+			.club-card {
+				border: 1px solid #66cccc;
+			}
+			.club-list {
+				border: 1px solid #66cccc;
+			}
+		}
+		
+		.club-card-container {
+			max-width: 62.5rem;
+			margin: auto;
+		}
+		
+		.club-list .collection,
+		.club-list .collection .collection-header,
+		.club-list .collection .collection-item {
+			border: none;
+			background: none;
+		}
+		
+		.club-list .collection-item .title {
+			font-size: 1.2rem;
+			font-weight: 300;
+		}
+		
+		.club-event-list .collection-header {
+			font-size: 1.2rem;
+			padding-left: 30px!important;
+		}
+		
+		.club-member-list .collection-header {
+			font-size: 1.2rem;
+			padding-left: 15px!important;
+		}
 		/*General Properties*/
+		
+		.italic {
+			font-style: italic;
+		}
 		
 		.triangle {
 			opacity: 0.9;
@@ -325,17 +380,46 @@
 			border-bottom: 50px solid #66cccc;
 		}
 		
+		.triangle.large {
+			border-left: 100px solid transparent;
+			border-right: 100px solid transparent;
+			border-bottom: 100px solid #66cccc;
+		}
+		
+		.triangle.bottom {
+			border-bottom: none;
+			border-top: 50px solid #66cccc;
+		}
+		
+		.triangle.bottom.large {
+			border-bottom: none;
+			border-top: 100px solid #66cccc;
+		}
+		
 		@media only screen and (min-width: 992px) {
 			.triangle {
 				border-left: 100px solid transparent;
 				border-right: 100px solid transparent;
 				border-bottom: 100px solid #66cccc;
 			}
+			.triangle.large {
+				border-left: 150px solid transparent;
+				border-right: 150px solid transparent;
+				border-bottom: 150px solid #66cccc;
+			}
+			.triangle.bottom {
+				border-bottom: none;
+				border-top: 100px solid #66cccc;
+			}
+			.triangle.bottom.large {
+				border-bottom: none;
+				border-top: 150px solid #66cccc;
+			}
 		}
 		
 		body {
+			/*Change here for custom background (available for club and article pages)*/
 			background: url(assets/images/background.jpg) fixed;
-			/*Change here for custom background*/
 		}
 		
 		.subheader {
@@ -349,10 +433,10 @@
 <body>
 	<!--Side Nav-->
 	<ul id="slide-out-panel" class="side-nav">
-		<img class="side-background" src="avatar-background.jpg"></img>
+		<img class="side-background" src="assets/images/avatar-background.jpg"></img>
 		<li>
 			<div class="userView">
-				<!--<img class="background" src="assets/images/avatar-background.jpg">-->
+				<!--<img class="background" src="avatar-background.jpg">-->
 				<a href="#!user"><img class="circle" src="assets/images/avatar.jpg"></a>
 				<a href="#!name"><span class="white-text name">Ludwig van Beethoven</span></a>
 				<a href="#!email"><span class="white-text email">Trade Tallyman</span></a>
@@ -399,99 +483,98 @@
 	<div class="triangle">
 	</div>
 	<!--Article Cards-->
-	<div class="post-card article-card">
+	<div class="post-card club-card">
 		<div class="card vertical post-card-content">
 			<div class="post-user-profile">
 				<div class="card-image article-avatar"><img class="circle" src="assets/images/avatar.jpg" /></div>
 			</div>
 			<div class="post-header-container title-container">
-				<h3 class="header post-header railway">Recruiting PY-trade partners</h3>
+				<h3 class="header post-header railway">HFI Programming Club</h3>
 			</div>
+			<!--Club motto-->
 			<div class="post-header-container">
-				<h5 class="header post-header railway subheader">A legend worth cherishing</h5>
-			</div>
-			<div class="post-header-container">
-				<h6 class="header post-header railway article-author">Ludwig van Beethoven</h6>
-			</div>
-			<div class="post-header-container">
-				<h6 class="header post-header railway subheader">2016/10/19 23:20</h6>
+				<h5 class="header post-header railway subheader">Inventing futures through coding</h5>
 			</div>
 			<div class="card-stacked">
 				<div class="card-content">
-					<p class="article-card-text">
-						Ludwig van Beethoven was a German composer. A crucial figure in the transition between the Classical and Romantic eras in
-						Western art music, he remains one of the most famous and influential of all composers. His best-known compositions
-						include 9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the
-						Missa solemnis and an opera, Fidelio. Ludwig van Beethoven was a German composer. A crucial figure in the transition
-						between the Classical and Romantic eras in Western art music, he remains one of the most famous and influential of
-						all composers. His best-known compositions include 9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas,
-						16 string quartets, his great Mass the Missa solemnis and an opera, Fidelio. Ludwig van Beethoven was a German composer.
-						A crucial figure in the transition between the Classical and Romantic eras in Western art music, he remains one of
-						the most famous and influential of all composers. His best-known compositions include 9 symphonies, 5 piano concertos,
-						1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the Missa solemnis and an opera, Fidelio. Ludwig
-						van Beethoven was a German composer. A crucial figure in the transition between the Classical and Romantic eras in
-						Western art music, he remains one of the most famous and influential of all composers. His best-known compositions
-						include 9 symphonies, 5 piano concertos, 1 violin concerto, 32 piano sonatas, 16 string quartets, his great Mass the
-						Missa solemnis and an opera, Fidelio.</p>
+					<p class="club-card-text">
+						<!--Club description-->
+						A spectre is haunting Europe --- the spectre of communism. All the powers of old Europe have entered into a holy alliance
+						to exorcise this spectre: Pope and Tsar, Metternich and Guizot, French Radicals and German police-spies. Where is the
+						party in opposition that has not been decried as communistic by its opponents in power? Where is the opposition that
+						has not hurled back the branding reproach of communism, against the more advanced opposition parties, as well as against
+						its reactionary adversaries? </p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="article-card comment">
-		<div class="post-header-container comment-caption">
-			<h3 class="header post-header railway">Comments</h3>
+	<!--Club card container-->
+	<div class="row club-card-container">
+		<!--Event list-->
+		<div class="post-card club-event-list club-list col s12 l4 push-l8">
+			<ul class="collection with-header">
+				<li class="collection-header">
+					Upcoming Events
+				</li>
+				<li class="collection-item">
+					<span class="title">Web programming session</span>
+					<p class="subheader">2016/10/20 16:06 <br> Room 205
+					</p>
+				</li>
+				<li class="collection-item">
+					<span class="title">Safety hat induction</span>
+					<p class="subheader">2016/10/30 16:06 <br> Room 206
+					</p>
+				</li>
+				<li class="collection-item">
+					<span class="title">Advanced Shaji survival session</span>
+					<p class="subheader">2016/11/30 16:06 <br> Room ICT
+					</p>
+				</li>
+			</ul>
 		</div>
-	</div>
-	<!--Comment placeholder-->
-	<div class="post-card article-card comment-card comment-placeholder">
-		<h4>No comments yet. Anything to write about?</h4>
-	</div>
-	<div class="post-card article-card comment-card">
-		<div class="card vertical post-card-content">
-			<div class="post-user-profile">
-				<div class="card-image"><img class="circle" src="assets/images/avatar.jpg" /></div>
-				<div class="post-header-container">
-					<h5 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h5>
-				</div>
-			</div>
-			<div class="card-stacked">
-				<div class="card-content">
-					<p class="article-card-text">
-						To be, or not to be, that is the question.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="post-card article-card comment-card">
-		<div class="card vertical post-card-content">
-			<div class="post-user-profile">
-				<div class="card-image"><img class="circle" src="avatar.jpg" /></div>
-				<div class="post-header-container">
-					<h5 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h5>
-				</div>
-			</div>
-			<div class="card-stacked">
-				<div class="card-content">
-					<p class="article-card-text">
-						To be, or not to be, that is the question.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="post-card article-card comment-card">
-		<div class="card vertical post-card-content">
-			<div class="post-user-profile">
-				<div class="card-image"><img class="circle" src="assets/images/avatar.jpg" /></div>
-				<div class="post-header-container">
-					<h5 class="header post-header">Ludwig van Beethoven</br>2016/9/20 1:29</h5>
-				</div>
-			</div>
-			<div class="card-stacked">
-				<div class="card-content">
-					<p class="article-card-text">
-						To be, or not to be, that is the question.</p>
-				</div>
-			</div>
+		<!--Core member list-->
+		<div class="post-card club-member-list club-list col s12 l7 pull-l4">
+			<ul class="collection with-header">
+				<li class="collection-header">
+					Committee Members
+				</li>
+				<li class="collection-item avatar">
+					<img src="assets/images/ethan.png" alt="" class="circle">
+					<span class="title railway">MEthan Ethanol</span>
+					<p class="railway subheader italic">THE REALITY FILLER
+					</p>
+					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+				</li>
+				<li class="collection-item avatar">
+					<img src="assets/images/howard.png" alt="" class="circle">
+					<span class="title railway">Lord Howard</span>
+					<p class="railway subheader italic">1ST LORD OF HOWARD
+					</p>
+					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+				</li>
+				<li class="collection-item avatar">
+					<img src="assets/images/micheal.png" alt="" class="circle">
+					<span class="title railway">Micheal EVA Rin</span>
+					<p class="railway subheader italic">THE SUPERHACKER
+					</p>
+					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+				</li>
+				<li class="collection-item avatar">
+					<img src="assets/images/season.png" alt="" class="circle">
+					<span class="title railway">Mr. Season</span>
+					<p class="railway subheader italic">A FOUNDING FATHER
+					</p>
+					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+				</li>
+				<li class="collection-item avatar">
+					<img src="assets/images/concord.png" alt="" class="circle">
+					<span class="title railway">Conoha Concordia</span>
+					<p class="railway subheader italic">IMPERIAL NEKO CASTER
+					</p>
+					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+				</li>
+			</ul>
 		</div>
 	</div>
 	<div class="post-card article-card about">
