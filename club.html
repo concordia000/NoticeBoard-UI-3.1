@@ -352,6 +352,10 @@
 			background: none;
 		}
 		
+		.club-list .collection {
+			margin-bottom: 0;
+		}
+		
 		.club-list .collection-item .title {
 			font-size: 1.2rem;
 			font-weight: 300;
@@ -360,6 +364,11 @@
 		.club-event-list .collection-header {
 			font-size: 1.2rem;
 			padding-left: 30px!important;
+		}
+		
+		.club-member-list {
+			height: 100%;
+			margin-bottom: 0!important;
 		}
 		
 		.club-member-list .collection-header {
@@ -398,6 +407,11 @@
 			border-top: 100px solid #66cccc;
 		}
 		
+		.member-list-container {
+			margin-top: -0.5rem;
+			padding: 0!important;
+		}
+		
 		@media only screen and (min-width: 992px) {
 			.triangle {
 				border-left: 100px solid transparent;
@@ -416,6 +430,12 @@
 			.triangle.bottom.large {
 				border-bottom: none;
 				border-top: 150px solid #66cccc;
+			}
+			.member-list-container {
+				margin-top: 0;
+				padding-right: 30px!important;
+				padding-left: 0!important;
+				margin-bottom: 30px;
 			}
 		}
 		
@@ -513,7 +533,7 @@
 	<!--Club card container-->
 	<div class="row club-card-container">
 		<!--Event list-->
-		<div class="post-card club-event-list club-list col s12 l4 push-l8">
+		<div class="post-card card club-event-list club-list col s12 l4 push-l8">
 			<ul class="collection with-header">
 				<li class="collection-header">
 					Upcoming Events
@@ -534,49 +554,57 @@
 					</p>
 				</li>
 			</ul>
+			<div class="card-action">
+				<a href="">All Events</a>
+			</div>
 		</div>
 		<!--Core member list-->
-		<div class="post-card club-member-list club-list col s12 l7 pull-l4">
-			<ul class="collection with-header">
-				<li class="collection-header">
-					Committee Members
-				</li>
-				<li class="collection-item avatar">
-					<img src="assets/images/ethan.png" alt="" class="circle">
-					<span class="title railway">MEthan Ethanol</span>
-					<p class="railway subheader italic">THE REALITY FILLER
-					</p>
-					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-				</li>
-				<li class="collection-item avatar">
-					<img src="assets/images/howard.png" alt="" class="circle">
-					<span class="title railway">Lord Howard</span>
-					<p class="railway subheader italic">1ST LORD OF HOWARD
-					</p>
-					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-				</li>
-				<li class="collection-item avatar">
-					<img src="assets/images/micheal.png" alt="" class="circle">
-					<span class="title railway">Micheal EVA Rin</span>
-					<p class="railway subheader italic">THE SUPERHACKER
-					</p>
-					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-				</li>
-				<li class="collection-item avatar">
-					<img src="assets/images/season.png" alt="" class="circle">
-					<span class="title railway">Mr. Season</span>
-					<p class="railway subheader italic">A FOUNDING FATHER
-					</p>
-					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-				</li>
-				<li class="collection-item avatar">
-					<img src="assets/images/concord.png" alt="" class="circle">
-					<span class="title railway">Conoha Concordia</span>
-					<p class="railway subheader italic">IMPERIAL NEKO CASTER
-					</p>
-					<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-				</li>
-			</ul>
+		<div class="member-list-container col s12 l8 pull-l4">
+			<div class="post-card card club-member-list club-list">
+				<ul class="collection with-header">
+					<li class="collection-header">
+						Committee Members
+					</li>
+					<li class="collection-item avatar">
+						<img src="assets/images/ethan.png" alt="" class="circle">
+						<span class="title railway">MEthan Ethanol</span>
+						<p class="railway subheader italic">THE REALITY FILLER
+						</p>
+						<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					</li>
+					<li class="collection-item avatar">
+						<img src="assets/images/howard.png" alt="" class="circle">
+						<span class="title railway">Lord Howard</span>
+						<p class="railway subheader italic">1ST LORD OF HOWARD
+						</p>
+						<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					</li>
+					<li class="collection-item avatar">
+						<img src="assets/images/micheal.png" alt="" class="circle">
+						<span class="title railway">Micheal EVA Rin</span>
+						<p class="railway subheader italic">THE SUPERHACKER
+						</p>
+						<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					</li>
+					<!--<li class="collection-item avatar">
+						<img src="assets/images/season.png" alt="" class="circle">
+						<span class="title railway">Mr. Season</span>
+						<p class="railway subheader italic">A FOUNDING FATHER
+						</p>
+						<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					</li>-->
+					<li class="collection-item avatar">
+						<img src="assets/images/concord.png" alt="" class="circle">
+						<span class="title railway">Conoha Concordia</span>
+						<p class="railway subheader italic">IMPERIAL NEKO CASTER
+						</p>
+						<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					</li>
+				</ul>
+				<div class="card-action">
+					<a href="">All Members</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="post-card article-card about">

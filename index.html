@@ -243,6 +243,35 @@
         .subheader {
             color: #999;
         }
+        
+        .add-file-btn {
+            border: none;
+            box-shadow: none;
+            background: #2d4186;
+        }
+        
+        .add-file-btn:hover {
+            border: none;
+            box-shadow: none;
+        }
+        
+        .input-field {
+            padding: 0!important;
+        }
+        /*New Post Form Properties*/
+        
+        @media only screen and (max-width: 992px) {
+            #new-post {
+                width: 95%;
+            }
+            #new-post .modal-content {
+                overflow-y: scroll!important;
+            }
+        }
+        
+        #new-post .modal-content {
+            overflow-y: hidden;
+        }
     </style>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -280,7 +309,7 @@
                 </a>
                 <img class="nb-logo brand-logo center" src="assets/images/logo.png"></img>
                 <ul id="nav-mobile" class="right">
-                    <li><a href="collapsible.html"><i class="material-icons add-button">add</i></a></li>
+                    <li><a href="#new-post"><i class="material-icons add-button">add</i></a></li>
                 </ul>
             </div>
         </nav>
@@ -298,6 +327,35 @@
             </form>
         </div>
     </nav>
+    <!-- New Post Form -->
+    <div id="new-post" class="modal modal-fixed-footer">
+        <div class="modal-content row">
+            <form id="new-post-form" class="col s12">
+                <h4>New Post</h4>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="new-post-content" class="materialize-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="file-field input-field">
+                        <div class="btn add-file-btn waves-effect waves-light">
+                            <span>File</span>
+                            <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button id="new-post-submit" class="btn-flat waves-effect waves-light" onclick="javascript:newPostSubmit()">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
     <!--Post Cards-->
     <div class="post-card">
         <div class="card vertical post-card-content">
@@ -315,7 +373,7 @@
                 <div class="card-content">
                     <!--Tags. Limit to 3 per post and their length-->
                     <div class="tag-container">
-                        <button class="tag-btn btn-flat waves-effect waves-light">#PYTrade</button>
+                        <button class="tag-btn btn-flat waves-effect waves-light">PYTrade</button>
                         <button class="tag-btn btn-flat waves-effect waves-light">#Beethoven</button>
                         <button class="tag-btn btn-flat waves-effect waves-light">#Meme</button>
                     </div>
@@ -653,8 +711,13 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!--Import TinyMCE-->
+    <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
     <script>
          $(".button-collapse").sideNav();
+         $('#new-post-submit').click(function() {
+            $('#new-post-form').submit();
+        });
          $(document).ready(function(){
              //Give each post-card its colour
              var postcards=$('.post-card');
@@ -665,6 +728,104 @@
                      $(postcards[i]).addClass('post-grey');
                  }
              }
+             //Modal initialisation
+              $('.modal').modal();
+              //TinyMCE initialisation
+              if($(window).height()>992){
+                tinymce.init({ 
+                  selector: 'textarea',
+                  autoresize_bottom_margin: 125,
+                  autoresize_on_init: false,
+                  menubar: false,
+                  plugins: ['advlist autolink autoresize lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table contextmenu paste code'],
+                  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                                    //From TinyMCE docs
+                  image_title: true, 
+                  automatic_uploads: true,
+                  // URL of our upload handler. CHANGE PLS
+                 images_upload_url: 'postAcceptor.php',
+                 file_picker_types: 'image', 
+                 file_picker_callback: function(cb, value, meta) {
+                   var input = document.createElement('input');
+                   input.setAttribute('type', 'file');
+                   input.setAttribute('accept', 'image/*');
+    
+                // Note: In modern browsers input[type="file"] is functional without 
+                // even adding it to the DOM, but that might not be the case in some older
+                // or quirky browsers like IE, so you might want to add it to the DOM
+                // just in case, and visually hide it. And do not forget do remove it
+                // once you do not need it anymore.
+
+                   input.onchange = function() {
+                     var file = this.files[0];
+      
+                      // Note: Now we need to register the blob in TinyMCEs image blob
+                      // registry. In the next release this part hopefully won't be
+                      // necessary, as we are looking to handle it internally.
+                      // Photo name/id handler
+                    var id = 'nb' + (new Date()).getTime();
+                    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                    var blobInfo = blobCache.create(id, file);
+                    blobCache.add(blobInfo);
+      
+                    // call the callback and populate the Title field with the file name
+                    cb(blobInfo.blobUri(), { title: file.name });
+                };
+                input.click();
+               }
+              });}
+              else{
+                tinymce.init({ 
+                  selector: 'textarea',
+                  autoresize_bottom_margin: 125,
+                  autoresize_on_init: false,
+                  menubar: false,
+                  plugins: ['advlist autolink autoresize lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table contextmenu paste code'],
+                  toolbar: 'styleselect | link image',
+                  //From TinyMCE docs
+                  image_title: true, 
+                  automatic_uploads: true,
+                  // URL of our upload handler. CHANGE PLS
+                 images_upload_url: 'postAcceptor.php',
+                 file_picker_types: 'image', 
+                 file_picker_callback: function(cb, value, meta) {
+                   var input = document.createElement('input');
+                   input.setAttribute('type', 'file');
+                   input.setAttribute('accept', 'image/*');
+    
+                // Note: In modern browsers input[type="file"] is functional without 
+                // even adding it to the DOM, but that might not be the case in some older
+                // or quirky browsers like IE, so you might want to add it to the DOM
+                // just in case, and visually hide it. And do not forget do remove it
+                // once you do not need it anymore.
+
+                   input.onchange = function() {
+                     var file = this.files[0];
+      
+                      // Note: Now we need to register the blob in TinyMCEs image blob
+                      // registry. In the next release this part hopefully won't be
+                      // necessary, as we are looking to handle it internally.
+                      // Photo name/id handler
+                    var id = 'nb' + (new Date()).getTime();
+                    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                    var blobInfo = blobCache.create(id, file);
+                    blobCache.add(blobInfo);
+      
+                    // call the callback and populate the Title field with the file name
+                    cb(blobInfo.blobUri(), { title: file.name });
+                };
+              input.click();
+            }
+        });
+      };
+              //TinyMCE image upload
+              tinymce.activeEditor.uploadImages(function(success) {
+                document.forms[0].submit();
+            });
          });
     </script>
 </body>
