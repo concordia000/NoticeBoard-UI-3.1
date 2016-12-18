@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <style>
         /* Google Material Design icons */
-        
+
         @font-face {
             font-family: 'Material Icons';
             font-style: normal;
@@ -15,7 +15,7 @@
             /* For IE6-8 */
             src: local('Material Icons'), local('MaterialIcons-Regular'), url(fonts/MaterialIcons/MaterialIcons-Regular.woff2) format('woff2'), url(fonts/MaterialIcons/MaterialIcons-Regular.woff) format('woff'), url(fonts/MaterialIcons/MaterialIcons-Regular.ttf) format('truetype');
         }
-        
+
         .material-icons {
             font-family: 'Material Icons';
             font-weight: normal;
@@ -40,46 +40,46 @@
         }
         /*Reserved*/
         /*Nav bar*/
-        
+
         #navbar-container nav {
             background: url(assets/images/background.jpg);
         }
-        
+
         #navbar {
             /*max-width: 62.5rem;*/
             margin: auto;
         }
-        
+
         .nb-logo {
             margin-top: 0.25rem;
             height: 4rem;
             vertical-align: middle;
         }
-        
+
         .menu-button {
             display: inline-block!important;
             margin-left: 1rem;
             font-size: 2.5rem;
         }
-        
+
         .add-button {
             font-size: 2.5rem!important;
         }
-        
+
         nav {
             background: none;
             box-shadow: none;
         }
         /*Side nav*/
-        
+
         .side-nav a {
             color: #fff!important;
         }
-        
+
         #slide-out-panel {
             overflow-y: hidden;
         }
-        
+
         .side-background {
             height: 150%;
             position: absolute;
@@ -87,36 +87,36 @@
             left: 0;
             z-index: -1;
         }
-        
+
         .side-nav a i {
             color: #fff!important;
         }
-        
+
         .side-nav .subheader {
             color: #ddd!important;
         }
-        
+
         .side-nav .divider {
             color: #ddd!important;
         }
         /*Search bar*/
-        
+
         .search-bar {
             max-width: 62.5rem;
             margin: auto;
         }
         /*Post cards*/
-        
+
         .card {
             border-radius: none;
             box-shadow: none;
         }
-        
+
         .post-card {
             opacity: 0.95;
             margin: auto;
         }
-        
+
         @media only screen and (min-width: 992px) {
             .post-card {
                 opacity: 0.97;
@@ -132,27 +132,27 @@
             }
         }
         /*Fix a bug on larger screens*/
-        
+
         @media only screen and (min-width: 1200px) {
             .post-card,
             .article-card {
                 margin-top: -1px;
             }
         }
-        
+
         .post-card .card {
             background: none;
         }
-        
+
         .post-card-content {
             max-width: 62.5rem;
             margin: auto;
         }
-        
+
         .card .card-image {
             padding: 2%;
         }
-        
+
         .card .card-content {
             padding-left: 30px;
             padding-right: 30px;
@@ -161,85 +161,85 @@
             text-overflow: ellipsis;
             overflow-wrap: normal;
         }
-        
+
         .card .card-action {
             text-align: right;
             border-bottom: 1px solid rgba(160, 160, 160, 0.2);
         }
-        
+
         .card .card-action a {
             color: #2d4186!important;
         }
-        
+
         .post-card .card-image .circle {
             padding: 10px;
             width: 8rem;
             border-radius: 50%;
         }
-        
+
         .post-user-profile {
             display: flex;
         }
-        
+
         .post-header {
             margin: auto;
             padding-top: 10px;
             padding-bottom: 10px;
         }
-        
+
         .post-card .card-stacked {
             margin-top: -30px;
         }
-        
+
         .post-header.subheader.hide-on-med-and-down {
             margin-right: 32.5rem;
             display: inline;
         }
-        
+
         .post-header-container {
             display: flex;
         }
-        
+
         .post-white {
             background: #fff;
         }
-        
+
         .post-grey {
             background: #eee;
         }
-        
+
         .tag-btn {
             color: #039be5!important;
             padding-left: 1rem;
             padding-right: 1rem;
         }
-        
+
         .post-comment-card {
             border-top: 1px solid rgba(160, 160, 160, 0.2);
             padding-top: 0!important;
             padding-bottom: 0!important;
             background: #f7ffff;
         }
-        
+
         .post-comment-card .circle {
             width: 4rem!important;
         }
         /*About Card*/
-        
+
         .about {
             padding: 1rem;
             background: #ddd;
         }
-        
+
         .about h5 {
             margin: 0;
         }
         /*General Properties*/
-        
+
         body {
             background: url(assets/images/background.jpg) fixed;
         }
-        
+
         .subheader {
             color: #999;
         }
@@ -317,16 +317,17 @@
     <!--Search Bar-->
     <nav class="search-bar">
         <div class="nav-wrapper">
-            <form method="get" action="http://www.bing.com/search">
+            <form method="get" action="https://www.bing.com/search" target="_blank" onsubmit="Bingsitesearch(this)">
                 <div class="input-field">
-                    <input type="hidden" name="site" value="hfinotice.com" />
-                    <input id="search" name="q" type="search" placeholder="Search NoticeBoard" required>
+                    <input id="search" name="q" type="hidden">
+                    <input id="search" name="keyword" type="search" placeholder="Search NoticeBoard" required>
                     <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
+                    <i class="material-icons" onclick="Clearcontent()">close</i>
                 </div>
             </form>
         </div>
     </nav>
+<<<<<<< HEAD
     <!-- New Post Form -->
     <div id="new-post" class="modal modal-fixed-footer">
         <div class="modal-content row">
@@ -356,6 +357,17 @@
             </button>
         </div>
     </div>
+=======
+    <script>
+        var domainroot="hfinotice.com/post";
+        function Bingsitesearch(curobj){
+            curobj.q.value="site:"+domainroot+" "+curobj.keyword.value;
+        }
+        function Clearcontent(){
+            $("input").val("");
+        }
+    </script>
+>>>>>>> origin/master
     <!--Post Cards-->
     <div class="post-card">
         <div class="card vertical post-card-content">
